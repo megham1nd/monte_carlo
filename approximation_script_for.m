@@ -10,8 +10,12 @@ pi_err = abs(pi_est-pi);
 
 hold on
 yyaxis left
-semilogx(pi_est)
+semilogx(N_total, pi_est)
+xlabel('Number of Points')
+ylabel('Pi Estimated')
 yyaxis right
-semilogx(pi_err)
+semilogx(N_total, pi_err)
+ylabel('Error')
+set(gca,'xscale','log')
+grid on
 print for_approximation.svg -dsvg
-hold off
