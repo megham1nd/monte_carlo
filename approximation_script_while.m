@@ -1,4 +1,4 @@
-k = 5:10;
+k = 5:0.1:15;
 tol = 2.^-k;
 time = zeros(1, length(tol));
 
@@ -8,5 +8,9 @@ for i = 1:length(tol)
     time(1, i) = toc;
 end
 
-plot(tol, time)
+semilogx(tol, time)
+set(gca,'xscale','log')
+xlabel('Tolerance')
+ylabel('Time')
+grid on
 print while_approximation.svg -dsvg
